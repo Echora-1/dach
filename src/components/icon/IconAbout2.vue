@@ -1,0 +1,29 @@
+<template>
+  <svg
+    width="59"
+    height="60"
+    viewBox="0 0 59 60"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="29.2183" cy="29.9243" r="29.1675" fill="#1FB537" />
+    <line
+      x1="28.4033"
+      y1="15.7832"
+      x2="28.4033"
+      y2="32.613"
+      stroke="#FFFFFF"
+      stroke-width="4"
+      stroke-linecap="round"
+    />
+    <line
+      x1="40.4062"
+      y1="33.4231"
+      x2="28.4038"
+      y2="33.4231"
+      stroke="#FFFFFF"
+      stroke-width="4"
+      stroke-linecap="round"
+    />
+  </svg>
+</template>
