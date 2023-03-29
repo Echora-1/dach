@@ -1,13 +1,15 @@
 <template>
   <header :class="['header', { scroll: scroll }]">
     <div class="container header__container">
-      <icon-logo />
+      <icon-logo class="header__logo" />
       <div class="header__social">
         <a href=""><IconInst /></a>
         <a href=""><IconWhat /></a>
         <a href=""><IconFace /></a>
       </div>
-      <a href="" class="header__phone"><icon-phone /> +380-xxx-xx-xx-xx</a>
+      <a href="" class="header__phone"
+        ><icon-phone /> <span>+380-xxx-xx-xx-xx</span></a
+      >
       <base-button class="header__btn">
         {{ $t("Заказать обратный звонок") }}
       </base-button>
@@ -17,7 +19,7 @@
         :open="false"
       />
       <base-language-selection
-        class="base-header__language"
+        class="header__language"
         :id="'language'"
         :label="'select language'"
         :list="languages"
@@ -98,7 +100,21 @@ export default {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  background: white;
+  background: #fafafa;
+
+  @media (max-width: 1023px) {
+    top: 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e2e2e2;
+  }
+
+  &__logo {
+    @media (max-width: 1023px) {
+      height: 28px;
+      width: 178px;
+    }
+  }
 
   &__container {
     display: flex;
@@ -113,7 +129,7 @@ export default {
     max-width: 410px;
     width: 100%;
     min-height: 100vh;
-    background: white;
+    background: #fafafa;
     transform: translateX(200%);
     transition: all 0.3s;
     padding: 36px 75px 86px 0;
@@ -123,6 +139,10 @@ export default {
 
     &--open {
       transform: translateX(0);
+    }
+
+    @media (max-width: 1023px) {
+      padding: 20px;
     }
   }
 
@@ -136,6 +156,18 @@ export default {
       color: var(--primary);
       margin-right: 16px;
     }
+    @media (max-width: 1023px) {
+      margin: 0 20px 0 auto;
+      span {
+        display: none;
+      }
+
+      svg {
+        width: 21px;
+        height: 21px;
+        margin-right: 0;
+      }
+    }
   }
 
   &__btn {
@@ -146,10 +178,16 @@ export default {
     line-height: 15px;
     text-transform: none;
     padding: 15px 20px;
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
   }
 
   &__menu-open {
-    margin-right: 38px;
+    @media (min-width: 1024px) {
+      margin-right: 38px;
+    }
   }
 
   &__menu-close {
@@ -170,6 +208,14 @@ export default {
         width: 28px;
         height: 28px;
       }
+    }
+    @media (max-width: 1023px) {
+      display: none;
+    }
+  }
+  &__language {
+    @media (max-width: 1023px) {
+      display: none;
     }
   }
 }

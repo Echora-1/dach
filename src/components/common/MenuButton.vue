@@ -83,5 +83,21 @@ export default {
       transform: translateX(-50%) rotate(-45deg);
     }
   }
+
+  @media (max-width: 1023px) {
+    width: 24px;
+    height: 21px;
+
+    &__line {
+      height: 2px;
+    }
+
+    &::before,
+    &::after {
+      height: 2px;
+      border-radius: 0;
+      width: 24px;
+    }
+  }
 }
 </style>

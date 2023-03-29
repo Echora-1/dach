@@ -35,6 +35,11 @@ export default {
 .section-services {
   padding-top: 108px;
   padding-bottom: 114px;
+
+  @media (max-width: 1023px) {
+    padding-top: 52px;
+    padding-bottom: 54px;
+  }
 }
 
 .section-about {
@@ -52,10 +57,24 @@ export default {
     bottom: 0;
     transform: translateX(-50%);
   }
+
+  @media (max-width: 1023px) {
+    padding-bottom: 20px;
+
+    &::before {
+      max-width: 142px;
+    }
+  }
 }
 
 .section-work {
   padding-top: 44px;
   padding-bottom: 168px;
+
+  @media (max-width: 1023px) {
+    padding-top: 40px;
+
+    padding-bottom: 73px;
+  }
 }
 </style>

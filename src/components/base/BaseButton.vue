@@ -51,6 +51,12 @@ export default {
   min-width: 172px;
   border: none;
 
+  @media (max-width: 1023px) {
+    font-size: 14px;
+    line-height: 19px;
+    padding: 11px 20px;
+  }
+
   &:hover {
     opacity: 0.8;
   }

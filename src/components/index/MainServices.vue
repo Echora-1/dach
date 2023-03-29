@@ -1,13 +1,17 @@
 <template>
   <section class="services container">
     <div class="services__left">
-      <img
-        src="../../assets/images/services/s1@2x.png"
-        width="389"
-        height="669"
-        alt=""
-        class="services__big-image"
-      />
+      <div class="services__big-image">
+        <h2 class="base-title base-title-mb">
+          {{ $t("Наши") }} <span>{{ $t("услуги") }}</span>
+        </h2>
+        <img
+          src="../../assets/images/services/s1@2x.png"
+          width="389"
+          height="669"
+          alt=""
+        />
+      </div>
       <div class="services__small-images">
         <img
           src="../../assets/images/services/s2@2x.png"
@@ -65,44 +69,89 @@
     left: 0;
     bottom: 0;
   }
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.base-title-mb {
+  display: inline-block;
+  padding: 0;
+  margin: 13px 0 50px;
+
+  &::before {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
 }
 
 .services {
   display: flex;
   width: 100%;
 
+  @media (max-width: 1023px) {
+    flex-direction: column;
+  }
+
   &__left {
     display: flex;
+
+    @media (max-width: 1023px) {
+      max-width: 340px;
+      margin: 0 auto;
+    }
   }
 
   &__right {
-    margin-left: 90px;
     display: flex;
     flex-direction: column;
+
+    @media (min-width: 1024px) {
+      margin-left: 90px;
+    }
   }
   &__big-image {
-    margin-top: 100px;
-    max-height: 669px;
-    max-width: 389px;
-    width: 100%;
-    height: 100%;
     z-index: 2;
     position: relative;
+
+    img {
+      margin-top: 100px;
+      max-height: 669px;
+      max-width: 389px;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @media (max-width: 1023px) {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        margin-top: 0;
+        max-width: 195px;
+        max-height: 335px;
+      }
+    }
   }
 
-  /*  &__small-image1 {
-    max-height: 338px;
-    max-width: 267px;
-    width: 100%;
-    height: 100%;
+  &__small-image1 {
+    @media (max-width: 1023px) {
+      width: 134px;
+      height: 238px;
+    }
   }
 
   &__small-image2 {
-    max-height: 224px;
-    max-width: 267px;
-    width: 100%;
-    height: 100%;
-  } */
+    @media (max-width: 1023px) {
+      width: 134px;
+      height: 146px;
+    }
+  }
 
   &__small-images {
     display: flex;
@@ -126,6 +175,32 @@
       top: 38px;
       z-index: -1;
     }
+
+    @media (max-width: 1023px) {
+      margin-left: 9px;
+
+      img {
+        margin-bottom: 9px;
+      }
+
+      &::before {
+        left: -109px;
+        top: 122px;
+        border-bottom: none;
+      }
+
+      &::after {
+        content: "";
+        width: 176px;
+        height: 173px;
+        position: absolute;
+        border-right: 1px solid #bbbbbb;
+        border-bottom: 1px solid #bbbbbb;
+        left: -98px;
+        bottom: 14px;
+        z-index: -1;
+      }
+    }
   }
 
   &__decor {
@@ -135,10 +210,24 @@
     background: var(--primary);
     width: 62px;
     height: 62px;
+
+    @media (max-width: 1023px) {
+      width: 51px;
+      height: 51px;
+
+      svg {
+        width: 23px;
+        height: 23px;
+      }
+    }
   }
 
   &__list {
     margin: 0 0 40px;
+
+    @media (max-width: 1023px) {
+      margin: 35px 0 20px;
+    }
   }
 
   &__item {
@@ -158,10 +247,34 @@
       left: 0;
       top: 10px;
     }
+
+    @media (max-width: 1023px) {
+      text-align: center;
+      font-size: 14px;
+      padding-left: 0;
+      padding-bottom: 14px;
+      margin: 0 auto 14px;
+      line-height: 21px;
+      max-width: 290px;
+
+      &::before {
+        width: 63px;
+        height: 1px;
+        bottom: 0;
+        top: unset;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
   }
 
   &__btn {
     max-width: 278px;
+
+    @media (max-width: 1023px) {
+      margin: 0 auto;
+      max-width: 172px;
+    }
   }
 }
 </style>
