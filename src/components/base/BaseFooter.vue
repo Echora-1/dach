@@ -51,11 +51,37 @@
     margin-left: 20px;
     transform: scale(-1, -1);
   }
+
+  @media (max-width: 1023px) {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 45px;
+    text-align: center;
+    max-width: 266px;
+    margin: 0 auto 40px;
+
+    svg {
+      display: none;
+    }
+  }
+}
+
+.container {
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .footer {
   background: #1f1f1f;
   padding: 60px 0 50px;
+
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+    padding: 44px 0 30px;
+  }
 
   &__info {
     margin-top: 80px;
@@ -63,12 +89,41 @@
     color: white;
     display: flex;
     justify-content: space-between;
+    text-align: center;
+
+    @media (max-width: 1023px) {
+      display: flex;
+      flex-direction: column;
+      margin-top: 50px;
+      margin-bottom: 40px;
+      align-items: center;
+
+      & > div:nth-child(2) {
+        order: 1;
+        margin-top: 22px;
+        margin-bottom: 40px;
+      }
+
+      & > div:nth-child(3) {
+        margin-top: 22px;
+      }
+      svg {
+        order: 2;
+      }
+    }
 
     p {
       font-weight: 600;
       font-size: 21px;
       line-height: 130%;
       margin: 0 0 13px;
+
+      @media (max-width: 1023px) {
+        font-size: 18px;
+        line-height: 130%;
+        margin: 0 auto 13px;
+        text-align: center;
+      }
     }
 
     a,
@@ -76,6 +131,19 @@
       font-weight: 300;
       font-size: 21px;
       line-height: 130%;
+
+      @media (max-width: 1023px) {
+        font-size: 18px;
+        line-height: 130%;
+        display: inline-flex;
+        margin: 0 auto;
+        text-align: center;
+
+        svg {
+          width: 29px;
+          height: 29px;
+        }
+      }
     }
 
     a:not(:first-child) {
@@ -87,10 +155,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 0 auto 11px;
     max-width: 485px;
     color: var(--primary);
-    margin-bottom: 11px;
+
     p {
       font-size: 18px;
       line-height: 124%;
@@ -102,6 +170,20 @@
       height: 21px;
       background: var(--primary);
     }
+
+    @media (max-width: 1023px) {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-size: 13px;
+        line-height: 124%;
+      }
+
+      div {
+        display: none;
+      }
+    }
   }
 
   &__copir {
@@ -112,6 +194,11 @@
     display: block;
     margin: 0 auto;
     text-align: center;
+
+    @media (max-width: 1023px) {
+      font-size: 13px;
+      line-height: 124%;
+    }
   }
 }
 </style>

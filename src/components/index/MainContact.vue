@@ -1,6 +1,7 @@
 <template>
   <div class="contact">
     <div class="contact__wrap container">
+      <h2 class="base-title mb-title">{{ $t("Контакты") }}</h2>
       <ContactMap class="contact__map" />
       <div class="contact__info">
         <h2 class="base-title">{{ $t("Контакты") }}</h2>
@@ -25,18 +26,30 @@
 .base-title {
   margin-bottom: 56px;
   max-width: 450px;
-
   position: relative;
+  display: none;
 
-  &::before {
-    content: "";
-    position: absolute;
-    width: 76px;
-    height: 1px;
-    background: #b8b8b8;
-    right: 30px;
-    top: 60%;
-    transform: translateY(-50%);
+  @media (min-width: 1024px) {
+    display: block;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 76px;
+      height: 1px;
+      background: #b8b8b8;
+      right: 30px;
+      top: 60%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.mb-title {
+  display: none;
+  margin-bottom: 35px;
+
+  @media (max-width: 1023px) {
+    display: block;
   }
 }
 
@@ -47,29 +60,44 @@
   z-index: 2;
   padding: 144px 0 160px;
 
+  @media (max-width: 1023px) {
+    padding: 54px 0 60px;
+  }
+
   &__map {
     max-width: 675px;
     position: relative;
 
-    &::before {
-      content: "";
-      position: absolute;
-      left: -44px;
-      top: -48px;
-      width: 176px;
-      height: 173px;
-      border: 1px solid #bbbbbb;
+    @media (min-width: 1024px) {
+      &::before {
+        content: "";
+        position: absolute;
+        left: -44px;
+        top: -48px;
+        width: 176px;
+        height: 173px;
+        border: 1px solid #bbbbbb;
+      }
     }
   }
 
   &__info {
     flex-grow: 1;
-    margin-left: 70px;
+
+    @media (min-width: 1024px) {
+      margin-left: 70px;
+    }
   }
 
   &__wrap {
     display: flex;
     align-items: center;
+
+    @media (max-width: 1023px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__list {
@@ -79,17 +107,48 @@
     max-width: 386px;
     margin-bottom: 22px;
 
+    @media (max-width: 1023px) {
+      margin-top: 35px;
+      border-bottom: 0;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 182px;
+        height: 1px;
+        background: rgba(184, 184, 184, 1);
+      }
+    }
+
     a {
       margin-bottom: 30px;
       font-size: 20px;
       line-height: 30px;
       display: flex;
       align-items: center;
+
+      @media (max-width: 1023px) {
+        flex-direction: column;
+        font-size: 14px;
+        line-height: 30px;
+        margin-bottom: 20px;
+      }
     }
 
     svg {
       color: var(--primary);
-      margin-right: 30px;
+
+      @media (min-width: 1024px) {
+        margin-right: 30px;
+      }
+
+      @media (max-width: 1023px) {
+        margin-bottom: 9px;
+      }
     }
   }
 
@@ -107,6 +166,18 @@
 
     a {
       margin-left: 30px;
+      color: var(--primary);
+    }
+
+    @media (max-width: 1023px) {
+      margin-top: 20px;
+      p {
+        display: none;
+      }
+
+      a:nth-child(2) {
+        margin-left: 0;
+      }
     }
   }
 }

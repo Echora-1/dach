@@ -123,8 +123,11 @@ export default {
   transition: color 0.3s;
   resize: none;
 
-  @media (max-width: 767px) {
-    padding: 10px 20px;
+  @media (max-width: 1023px) {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 124%;
+    padding: 10px 20px 10px 0;
   }
 
   &:-webkit-autofill,

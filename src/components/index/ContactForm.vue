@@ -1,7 +1,7 @@
 <template>
   <div class="form">
     <form class="form__form" v-if="!loading && !success" @submit.prevent="send">
-      <div>
+      <div class="form__input-wrap">
         <base-input
           v-model="form.name"
           type="name"
@@ -115,17 +115,41 @@ export default {
     max-width: 1200px;
     justify-content: space-between;
     margin-right: auto;
+
+    @media (max-width: 1023px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+
+  &__input-wrap {
+    @media (max-width: 1023px) {
+      width: 100%;
+      max-width: 268px;
+    }
   }
 
   &__input {
     max-width: 224px;
     width: 100%;
+
+    @media (max-width: 1023px) {
+      max-width: 268px;
+      width: 100%;
+      margin-bottom: 25px;
+    }
   }
 
   &__btn {
     margin-bottom: auto;
     max-width: 278px;
     width: 100%;
+
+    @media (max-width: 1023px) {
+      max-width: 172px;
+    }
   }
 
   &__loader {
@@ -144,6 +168,10 @@ export default {
     .invalid-text {
       bottom: -22px;
     }
+  }
+
+  @media (max-width: 1023px) {
+    max-width: 268px;
   }
 }
 </style>

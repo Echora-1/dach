@@ -54,6 +54,11 @@ export default {
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 1023px) {
+    min-height: 176px;
+    background-image: url("@/assets/images/mb-paralaxbg.png");
+  }
+
   &__wrap {
     max-width: 1000px;
     width: 100%;
@@ -67,6 +72,11 @@ export default {
       line-height: 183px;
       text-align: center;
       color: var(--primary);
+
+      @media (max-width: 1023px) {
+        font-size: 53px;
+        line-height: 72px;
+      }
     }
 
     p {
@@ -77,6 +87,12 @@ export default {
       max-width: 228px;
       text-align: center;
       min-height: 60px;
+
+      @media (max-width: 1023px) {
+        font-size: 13px;
+        line-height: 17px;
+        max-width: 92px;
+      }
     }
   }
 
@@ -90,6 +106,10 @@ export default {
     width: 1px;
     background: rgba(255, 255, 255, 0.5);
     height: 170px;
+
+    @media (max-width: 1023px) {
+      height: 60px;
+    }
   }
 }
 </style>
