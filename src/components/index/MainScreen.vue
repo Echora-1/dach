@@ -53,14 +53,14 @@
 }
 
 .main-screen {
-  min-height: 100vh;
+  min-height: calc(100vh - 92px);
   background-image: url("@/assets/images/main2.svg");
   background-position: 700px bottom;
   background-repeat: no-repeat;
   position: relative;
 
   @media (max-width: 1023px) {
-    min-height: 600px;
+    min-height: 520px;
     background-image: url("@/assets/images/mb-main2.svg");
     background-position: 0px bottom;
   }
@@ -71,7 +71,7 @@
     align-items: flex-end;
     justify-content: center;
     text-align: end;
-    padding-top: 176px;
+    padding-top: 90px;
     flex-direction: column;
     max-width: 1225px;
     position: relative;
@@ -79,7 +79,7 @@
 
     @media (max-width: 1023px) {
       flex-direction: column;
-      padding-top: 149px;
+      padding-top: 68px;
       align-items: center;
     }
   }

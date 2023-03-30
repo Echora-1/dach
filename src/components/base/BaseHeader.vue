@@ -1,5 +1,5 @@
 <template>
-  <header :class="['header', { scroll: scroll }]">
+  <header :class="['header']">
     <div class="container header__container">
       <icon-logo class="header__logo" />
       <div class="header__social">
@@ -27,14 +27,6 @@
         :default-value="languages[0]"
         @selected="setLocale"
       />
-      <nav :class="['header__nav', { 'header__nav--open': showMenu }]">
-        <menu-button
-          class="header__menu-close"
-          @click="showMenu = !showMenu"
-          :open="true"
-        />
-        <ul class="header__nav-list"></ul>
-      </nav>
     </div>
   </header>
 </template>
@@ -91,21 +83,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header {
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  min-height: 55px;
-  position: fixed;
-  top: 35px;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background: #fafafa;
-
   @media (max-width: 1023px) {
-    top: 0;
-    padding-top: 25px;
-    padding-bottom: 25px;
     border-bottom: 1px solid #e2e2e2;
   }
 
@@ -120,15 +98,20 @@ export default {
     display: flex;
     align-items: center;
     max-width: 1400px;
+    width: 100%;
+    padding-top: 47px;
+
+    @media (max-width: 1023px) {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
   }
 
   &__nav {
-    position: fixed;
     top: 0;
     right: 0;
     max-width: 410px;
     width: 100%;
-    min-height: 100vh;
     background: #fafafa;
     transform: translateX(200%);
     transition: all 0.3s;
