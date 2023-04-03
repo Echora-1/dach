@@ -89,7 +89,7 @@ export default {
       ],
       currentLanguage: "",
       scroll: false,
-      show: true,
+      show: false,
     };
   },
   mounted() {
