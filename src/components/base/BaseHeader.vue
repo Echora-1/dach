@@ -17,7 +17,11 @@
         class="header__menu-open"
         @click="showMenu = !showMenu"
         :open="false"
-      />
+        @mouseover="show = true"
+        @mouseleave="show = false"
+      >
+        <nav-list @mouseover="show = true" v-if="show" class="nav-list" />
+      </menu-button>
       <base-language-selection
         class="header__language"
         :id="'language'"
@@ -27,9 +31,32 @@
         :default-value="languages[0]"
         @selected="setLocale"
       />
+      <nav
+        @click="showMenu = false"
+        :class="['header__nav', { 'header__nav--open': showMenu }]"
+      >
+        <div class="header__nav-wrap" @click.stop="">
+          <div class="header__nav-header">
+            <menu-button
+              class="header__nav-btn"
+              @click="showMenu = !showMenu"
+              :open="showMenu"
+            />
+
+            <icon-logo class="header__mb-logo" />
+          </div>
+          <nav-list @click="showMenu = false" />
+          <div class="header__nav-social">
+            <a href=""><IconInst /></a>
+            <a href=""><IconWhat /></a>
+            <a href=""><IconFace /></a>
+          </div>
+        </div>
+      </nav>
     </div>
   </header>
 </template>
+
 <script>
 import IconLogo from "../icon/IconLogo.vue";
 import MenuButton from "../common/MenuButton.vue";
@@ -39,8 +66,10 @@ import BaseLanguageSelection from "@/components/base/BaseLanguageSelection.vue";
 import IconInst from "@/components/icon/IconInst.vue";
 import IconWhat from "@/components/icon/IconWhat.vue";
 import IconFace from "@/components/icon/IconFace.vue";
+import NavList from "@/components/base/NavList.vue";
 export default {
   components: {
+    NavList,
     IconFace,
     IconWhat,
     IconInst,
@@ -60,6 +89,7 @@ export default {
       ],
       currentLanguage: "",
       scroll: false,
+      show: true,
     };
   },
   mounted() {
@@ -83,6 +113,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header {
+  background-color: #f3f3f3;
+
   @media (max-width: 1023px) {
     border-bottom: 1px solid #e2e2e2;
   }
@@ -108,24 +140,40 @@ export default {
   }
 
   &__nav {
+    position: fixed;
     top: 0;
     right: 0;
-    max-width: 410px;
     width: 100%;
-    background: #fafafa;
     transform: translateX(200%);
     transition: all 0.3s;
-    padding: 36px 75px 86px 0;
-    display: flex;
     flex-direction: column;
-    box-shadow: 0 12px 42px rgba(0, 0, 0, 0.16);
-
-    &--open {
-      transform: translateX(0);
-    }
+    display: none;
+    min-height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
 
     @media (max-width: 1023px) {
-      padding: 20px;
+      &--open {
+        transform: translateX(0);
+        display: flex;
+      }
+    }
+  }
+
+  &__nav-wrap {
+    padding: 36px 75px 86px 0;
+    background: #282828;
+    max-width: calc(100% - 60px);
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1023px) {
+      padding: 36px 0;
     }
   }
 
@@ -170,6 +218,7 @@ export default {
   &__menu-open {
     @media (min-width: 1024px) {
       margin-right: 38px;
+      overflow: visible;
     }
   }
 
@@ -201,9 +250,50 @@ export default {
       display: none;
     }
   }
+
+  &__nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 45px;
+    padding: 0 28px;
+  }
+
+  &__mb-logo {
+    width: 158px;
+    height: 25px;
+    color: #ffffff;
+  }
+
+  &__nav-social {
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: auto 0 15px;
+
+    svg {
+      width: 29px;
+      height: 29px;
+    }
+  }
 }
 
 .scroll {
   top: 0;
+}
+
+.nav-list {
+  opacity: 1;
+  position: absolute;
+  bottom: -290px;
+  left: -151px;
+  min-width: 195px;
+  z-index: 3;
+  padding-top: 30px;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
 }
 </style>

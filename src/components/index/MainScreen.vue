@@ -1,12 +1,5 @@
 <template>
   <section class="main-screen">
-    <img
-      class="main-screen__img"
-      width="869"
-      height="587"
-      src="@/assets/images/main@2x.png"
-      alt=""
-    />
     <div class="decor"></div>
     <div class="decor1"></div>
     <div class="main-screen__wrap container">
@@ -15,21 +8,49 @@
       <base-button class="main-screen__btn">
         {{ $t("заказать") }}
       </base-button>
-      <main-arrow class="arrow" />
     </div>
+    <picture>
+      <source
+        media="(min-width: 1024px)"
+        srcset="@/assets/images/main.png 1x, @/assets/images/main@2x.png 2x"
+      />
+      <img
+        class="main-screen__img"
+        width="866"
+        height="450"
+        src="@/assets/images/mb-main.png"
+        srcset="@/assets/images/mb-main@2x.png 2x"
+        alt=""
+      />
+    </picture>
   </section>
 </template>
+
+<!--<picture>
+<source type="image/webp" media="(min-width: 768px)" srcset="../../assets/images/main-screen.webp 1x, ../../assets/images/main-screen@2x.webp 2x">
+<source type="image/webp" srcset="../../assets/images/main-screen-mb.webp 1x, ../../assets/images/main-screen-mb@2x.webp 2x">
+<source media="(min-width: 768px)" srcset="../../assets/images/main-screen.png 1x, ../../assets/images/main-screen@2x.png 2x">
+<img
+        src="../../assets/images/main-screen-mb.png"
+        width="232"
+        height="354"
+        alt=""
+        srcset="../../assets/images/main-screen-mb@2x.png 2x"
+        class="main-screen__img"
+/>
+</picture>-->
 
 <style lang="scss" scoped>
 .base-title {
   max-width: 640px;
   margin-bottom: 12px;
   display: inline-block;
-  padding: 25px 0 0 70px;
+  padding: 25px 70px 0 0;
   position: relative;
   font-weight: 700;
   font-size: 87px;
   line-height: 106.26%;
+  text-align: start;
 
   @media (min-width: 1024px) {
     &::before {
@@ -38,7 +59,7 @@
       width: 864px;
       height: 178px;
       background: url("@/assets/images/main-title.svg") no-repeat center;
-      left: 0;
+      right: 0;
       top: 0;
     }
   }
@@ -53,22 +74,52 @@
 }
 
 .main-screen {
-  min-height: calc(100vh - 92px);
-  background-image: url("@/assets/images/main2.svg");
-  background-position: 700px bottom;
-  background-repeat: no-repeat;
+  min-height: 940px;
   position: relative;
+  background-color: #f3f3f3;
+
+  &::before {
+    position: absolute;
+    content: "";
+    bottom: -110px;
+    left: 0;
+    right: 0;
+    height: 282px;
+    width: 100%;
+    background-image: url("../../assets/images/bgMain.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+  }
+  @media (min-width: 1024px) {
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 146px;
+      left: 0;
+      height: 118px;
+      width: 1102px;
+      background-image: url("../../assets/images/main-word.svg");
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+  }
 
   @media (max-width: 1023px) {
-    min-height: 520px;
-    background-image: url("@/assets/images/mb-main2.svg");
-    background-position: 0px bottom;
+    min-height: 800px;
+    overflow: hidden;
+
+    &::before {
+      height: 218px;
+      transform: scaleX(-1);
+      bottom: -130px;
+    }
   }
 
   &__wrap {
     width: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     text-align: end;
     padding-top: 90px;
@@ -86,14 +137,18 @@
 
   &__img {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    top: 220px;
+    right: 0;
     object-fit: contain;
     z-index: 1;
+    width: 982px;
+    height: 821px;
 
     @media (max-width: 1023px) {
-      max-width: 306px;
-      max-height: 223px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      top: 160px;
     }
   }
 
@@ -130,7 +185,7 @@
 .decor {
   width: 64px;
   height: 128px;
-  border: 1px solid #e2e2e2;
+  border: 1px solid #ffffff;
   position: absolute;
   bottom: 172px;
   left: 0;
@@ -144,7 +199,7 @@
 .decor1 {
   width: 41px;
   height: 85px;
-  border: 1px solid #e2e2e2;
+  border: 1px solid #ffffff;
   position: absolute;
   bottom: 279px;
   right: 0;
@@ -168,5 +223,4 @@
 </style>
 <script setup>
 import BaseButton from "@/components/base/BaseButton.vue";
-import MainArrow from "@/components/icon/MainArrow.vue";
 </script>

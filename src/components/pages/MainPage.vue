@@ -1,12 +1,19 @@
 <template>
   <div>
+    <div id="main"></div>
     <MainScreen />
+    <div id="services"></div>
     <MainServices class="section-services" />
+    <div id="about"></div>
     <MainAbout class="section-about" />
+    <div id="work"></div>
     <MainWork class="section-work" />
+    <div id="portfolio"></div>
     <MainPortfolio class="section-portfolio" />
     <MainParalax />
+    <div id="contact"></div>
     <MainContact />
+    <div id="footer"></div>
   </div>
 </template>
 

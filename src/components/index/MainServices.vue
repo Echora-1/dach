@@ -11,6 +11,9 @@
           height="669"
           alt=""
         />
+        <div class="services__decor">
+          <icon-decor-arrow />
+        </div>
       </div>
       <div class="services__small-images">
         <img
@@ -27,7 +30,7 @@
           alt=""
           class="services__small-image2"
         />
-        <div class="services__decor">
+        <div class="services__decor services__decor-mb">
           <icon-decor-arrow />
         </div>
       </div>
@@ -119,7 +122,6 @@
     position: relative;
 
     img {
-      margin-top: 100px;
       max-height: 669px;
       max-width: 389px;
       width: 100%;
@@ -160,6 +162,7 @@
     flex-grow: 1;
     position: relative;
     z-index: 1;
+    margin-top: 190px;
 
     img {
       margin-bottom: 20px;
@@ -178,6 +181,7 @@
 
     @media (max-width: 1023px) {
       margin-left: 9px;
+      margin-top: 0;
 
       img {
         margin-bottom: 9px;
@@ -210,15 +214,30 @@
     background: var(--primary);
     width: 62px;
     height: 62px;
+    margin-left: auto;
+    transform: scaleX(-1);
+    margin-top: 18px;
 
     @media (max-width: 1023px) {
       width: 51px;
       height: 51px;
+      display: none;
+      margin-left: unset;
+      transform: scaleX(1);
+      margin-top: 0;
 
       svg {
         width: 23px;
         height: 23px;
       }
+    }
+  }
+
+  &__decor-mb {
+    display: none;
+
+    @media (max-width: 1023px) {
+      display: flex;
     }
   }
 

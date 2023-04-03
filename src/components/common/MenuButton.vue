@@ -1,6 +1,7 @@
 <template>
   <button :class="['menu-button', { 'menu-button--open': open }]">
     <span class="menu-button__line"></span>
+    <slot></slot>
   </button>
 </template>
 
@@ -73,6 +74,7 @@ export default {
     &::after {
       top: 15px;
       bottom: unset;
+      background: #ffffff;
     }
 
     &::before {
