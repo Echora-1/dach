@@ -74,6 +74,7 @@
 }
 
 .main-screen {
+  padding-top: 110px;
   min-height: 940px;
   position: relative;
   background-color: #f3f3f3;
@@ -108,6 +109,7 @@
   @media (max-width: 1023px) {
     min-height: 800px;
     overflow: hidden;
+    padding-top: 50px;
 
     &::before {
       height: 218px;

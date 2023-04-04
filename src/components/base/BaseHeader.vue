@@ -1,5 +1,5 @@
 <template>
-  <header :class="['header']">
+  <header :class="['header', { scroll: scroll }]">
     <div class="container header__container">
       <icon-logo class="header__logo" />
       <div class="header__social">
@@ -112,9 +112,21 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  min-height: 55px;
+  position: fixed;
+  top: 37px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #f3f3f3;
 
   @media (max-width: 1023px) {
+    top: 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
     border-bottom: 1px solid #e2e2e2;
   }
 
@@ -130,12 +142,6 @@ export default {
     align-items: center;
     max-width: 1400px;
     width: 100%;
-    padding-top: 47px;
-
-    @media (max-width: 1023px) {
-      padding-top: 25px;
-      padding-bottom: 25px;
-    }
   }
 
   &__nav {
