@@ -20,7 +20,6 @@
         @mouseover="show = true"
         @mouseleave="show = false"
       >
-        <nav-list @mouseover="show = true" v-if="show" class="nav-list" />
       </menu-button>
       <base-language-selection
         class="header__language"
@@ -152,18 +151,15 @@ export default {
     z-index: 10;
     background: rgba(0, 0, 0, 0.6);
 
-    @media (max-width: 1023px) {
-      &--open {
-        transform: translateX(0);
-        display: flex;
-      }
+    &--open {
+      transform: translateX(0);
+      display: flex;
     }
   }
 
   &__nav-wrap {
-    padding: 36px 75px 86px 0;
     background: #282828;
-    max-width: calc(100% - 60px);
+    max-width: 500px;
     width: 100%;
     min-height: 100vh;
     position: fixed;
@@ -171,9 +167,10 @@ export default {
     right: 0;
     display: flex;
     flex-direction: column;
+    padding: 36px 0;
 
     @media (max-width: 1023px) {
-      padding: 36px 0;
+      max-width: calc(100% - 60px);
     }
   }
 

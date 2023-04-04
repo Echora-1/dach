@@ -40,7 +40,7 @@
     }
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 4000px) {
     a {
       background: transparent;
       font-size: 15px;
